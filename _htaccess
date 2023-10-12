@@ -1,0 +1,8 @@
+RewriteEngine On
+
+RewriteCond %{HTTPS} off
+
+RewriteCond %{https:X-Forwarded-Proto} !https
+
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+ErrorDocument 404 https://energo-kontroll.ru/404.html
